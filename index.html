@@ -7,12 +7,23 @@
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { background: #000; width: 100vw; height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; }
-    video { width: 100%; height: 100%; object-fit: cover; }
+    video { width: 100%; height: 100%; object-fit: cover; display: none; }
+    #btn { color: #fff; font-size: 1.2rem; font-family: sans-serif; cursor: pointer; border: 1px solid #fff; padding: 16px 32px; border-radius: 4px; background: transparent; letter-spacing: 2px; }
+    #btn:hover { background: rgba(255,255,255,0.1); }
   </style>
 </head>
 <body>
-  <video autoplay playsinline>
+  <button id="btn">🎂</button>
+  <video id="vid">
     <source src="video.mp4" type="video/mp4">
   </video>
+  <script>
+    document.getElementById('btn').addEventListener('click', function() {
+      this.style.display = 'none';
+      const v = document.getElementById('vid');
+      v.style.display = 'block';
+      v.play();
+    });
+  </script>
 </body>
 </html>
